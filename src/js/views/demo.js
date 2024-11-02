@@ -13,6 +13,7 @@ export const Demo = () => {
 			<ul className="list-group">
 				{store.demo.map((item, index) => {
 					return (
+						<>
 						<li
 							key={index}
 							className="list-group-item d-flex justify-content-between"
@@ -22,18 +23,34 @@ export const Demo = () => {
 							</Link>
 							{// Conditional render example
 							// Check to see if the background is orange, if so, display the message
-							item.background === "orange" ? (
+							item.background === "pink" ? (
 								<p style={{ color: item.initial }}>
 									Check store/flux.js scroll to the actions to see the code
 								</p>
 							) : null}
-							<button className="btn btn-success" onClick={() => actions.changeColor(index, "orange")}>
+							<button className="btn btn-success" onClick={() => actions.changeColor(index, "pink")}>
 								Change Color
 							</button>
 						</li>
+						</>
 					);
 				})}
 			</ul>
+
+			{
+				/*create a map of items obtained from the store(demo, cars, own key) to display on the browser. REquire actions. to get data from the store. 
+				Refer to line 14 above for example
+				store.demo.map(
+					return(jsx)
+				) 
+				*/ 
+			}
+
+
+
+
+			<br />
+			<button className="btn btn-warning" onClick={() => {actions.displayCars()}}>Display Cars</button>
 			<br />
 			<Link to="/">
 				<button className="btn btn-primary">Back home</button>
